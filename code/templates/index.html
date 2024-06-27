@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción de enfermedades oculares</title>
+    <style>
+        /* Estilos CSS */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Alineación de texto a la izquierda */
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+
+        select {
+            display: block;
+            margin: 10px auto;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result-container {
+            margin-top: 20px;
+            text-align: center; /* Alinear contenido al centro */
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #image-preview-container {
+            max-width: 100%;
+            margin: 20px auto;
+            display: none; /* Inicialmente oculto */
+        }
+
+        #image-preview {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto; /* Centrar la imagen */
+        }
+    </style>
+</head>
+<body>
+    <h1>Predicción de enfermedades oculares</h1>
+    <form id="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file-input">Sube tu imagen:</label>
+        <br>
+        <input type="file" name="image" accept="image/*" required id="file-input"> <!-- Agregado id="file-input" -->
+        <br>
+        <select name="model">
+            <option value="tl">Modelo Transfer Learning</option>
+            <option value="cnn">Modelo CNN</option>
+        </select>
+        <br>
+        <div id="image-preview-container">
+            <img id="image-preview" src="" alt="Vista previa de la imagen"> <!-- Agregado id="image-preview" -->
+        </div>
+        <br>
+        <button type="submit">Predecir</button>
+        <div id="result-container">
+          <p id="result"></p>
+        </div>
+    </form>
+
+    <script>
+        // Capturar el evento de cambio en el input de tipo file
+        document.getElementById('file-input').onchange = function(event) {
+            let input = event.target;
+            
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    let imagePreview = document.getElementById('image-preview');
+                    imagePreview.src = e.target.result;
+                    document.getElementById('image-preview-container').style.display = 'block'; // Mostrar contenedor de imagen
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+
+        // Manejar el envío del formulario
+        document.getElementById('upload-form').onsubmit = async function(event) {
+            event.preventDefault();
+        
+            let formData = new FormData(this);
+        
+            try {
+                let response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+        
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+        
+                let data = await response.json();
+                document.getElementById('result').textContent = `Clase predicha: ${data.prediction}`;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        
+    </script>
+</body>
+</html>
