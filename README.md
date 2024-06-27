@@ -4,6 +4,7 @@
 
 - Nombre de los alumnos participantes:
   Andrea Fabiana García Napurí-U202014068
+  
   Claudia Letizia Sifuentes Mendieta-U20211a147
   
 - Breve descripción del dataset (se puede adjuntar el archivo PDF):
@@ -11,7 +12,9 @@
   El conjunto de datos bajo análisis comprende una variada colección de imágenes oftálmicas, capturadas para diagnosticar y estudiar diversas condiciones oculares. Este conjunto incluye imágenes representativas de retinas normales, retinopatía diabética, cataratas y glaucoma, con cada categoría conteniendo aproximadamente 1000 imágenes.
 
 - Conclusiones:
+
   ●	Clasificación con CNNs: Las Redes Neuronales Convolucionales utilizadas para la clasificación mostraron resultados prometedores en la detección de enfermedades oculares. Se logró una precisión aceptable en la identificación de casos positivos (presencia de enfermedades) y negativos.
+  
   
 ●	Mejora de la generalización: Aunque los resultados fueron positivos, el modelo puede beneficiarse de un ajuste adicional de hiperparámetros para mejorar la generalización a nuevos conjuntos de datos y escenarios clínicos.
 
