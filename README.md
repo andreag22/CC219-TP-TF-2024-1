@@ -3,6 +3,7 @@
 - Objetivo del trabajo: El objetivo del trabajo es crear un sistema de detección automática de enfermedades oculares mediante el análisis de imágenes oftálmicas, utilizando técnicas de visión computacional y aprendizaje automático. Esto permitirá diagnósticos tempranos y intervenciones médicas más efectiva.
 
 - Nombre de los alumnos participantes:
+
   Andrea Fabiana García Napurí-U202014068
   
   Claudia Letizia Sifuentes Mendieta-U20211a147
@@ -15,12 +16,10 @@
 
   ●	Clasificación con CNNs: Las Redes Neuronales Convolucionales utilizadas para la clasificación mostraron resultados prometedores en la detección de enfermedades oculares. Se logró una precisión aceptable en la identificación de casos positivos (presencia de enfermedades) y negativos.
   
+  ●	Mejora de la generalización: Aunque los resultados fueron positivos, el modelo puede beneficiarse de un ajuste adicional de hiperparámetros para mejorar la generalización a nuevos conjuntos de datos y escenarios clínicos.
   
-●	Mejora de la generalización: Aunque los resultados fueron positivos, el modelo puede beneficiarse de un ajuste adicional de hiperparámetros para mejorar la generalización a nuevos conjuntos de datos y escenarios clínicos.
-
-●	Incorporación de más datos: Considerar la inclusión de más datos variados y equilibrados podría mejorar la robustez del modelo frente a diferentes condiciones oculares y características demográficas de los pacientes.
-
-●	Exploración de otras técnicas: Evaluar el uso de algoritmos adicionales como Random Forest, SVM o GBM para la clasificación podría proporcionar comparaciones interesantes respecto a la efectividad y eficiencia del modelo actual basado en CNNs
-
+  ●	Incorporación de más datos: Considerar la inclusión de más datos variados y equilibrados podría mejorar la robustez del modelo frente a diferentes condiciones oculares y características demográficas de los pacientes.
+  
+  ●	Exploración de otras técnicas: Evaluar el uso de algoritmos adicionales como Random Forest, SVM o GBM para la clasificación podría proporcionar comparaciones interesantes respecto a la efectividad y eficiencia del modelo actual basado en CNNs
   
 - Licencia:
