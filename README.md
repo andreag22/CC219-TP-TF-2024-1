@@ -23,3 +23,4 @@
   ●	Exploración de otras técnicas: Evaluar el uso de algoritmos adicionales como Random Forest, SVM o GBM para la clasificación podría proporcionar comparaciones interesantes respecto a la efectividad y eficiencia del modelo actual basado en CNNs
   
 - Licencia:
+Este proyecto está bajo la licencia MIT. 
